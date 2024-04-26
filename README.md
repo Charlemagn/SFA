@@ -16,7 +16,7 @@ pip install -r requirements.txt
 ```
 ### Load the data and preprocess the data
 The *load_data.py* script located in the *scr/* folder of this repository can be used to download some text matching dataset 
-and pretrained word embeddings. By default, the script fetches the most classic dataset [SNLI](https://nlp.stanford.edu/projects/snli/) 
+and pretrained word embeddings. By default, the script loads the most classic dataset [SNLI](https://nlp.stanford.edu/projects/snli/) 
 corpus and the [GloVe 840B 300d](https://nlp.stanford.edu/projects/glove/) embeddings. where `target_dir` is the path to a directory 
 where the downloaded data must be saved (defaults to *../data/*). Before using the downloaded corpus and embeddings for the base model, 
 they need to be preprocessed using the *preprocess.py* script in the src/preprocess folder of this repository. where `config` 
