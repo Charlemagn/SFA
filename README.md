@@ -1,9 +1,6 @@
-# ESIM - Enhanced Sequential Inference Model
-Implementation of the ESIM model for natural language inference with PyTorch
-
-This repository contains an implementation with PyTorch of the sequential model presented in the paper 
+# Modeling Selective Feature Attention for Representation-based Siamese Text Matching
+This repository is the code implementation of the paper:
 ["Modeling Selective Feature Attention for Representation-based Siamese Text Matching"](https://arxiv.org/pdf/2404.16776) 
-
 
 ## How to
 ### Install the package
@@ -13,17 +10,15 @@ Windows).
 Then, to install the dependencies necessary to run the model, simply execute the command `pip install --upgrade .` from within
 the cloned repository (at the root, and preferably inside of a [virtual environment](https://docs.python.org/3/tutorial/venv.html)).
 
-### Fetch the data to train and test the model
-The *fetch_data.py* script located in the *scripts/* folder of this repository can be used to download some NLI dataset and
+### Load the data to train and test the model
+The *load_data.py* script located in the *scr/* folder of this repository can be used to download some NLI dataset and
 pretrained word embeddings. By default, the script fetches the [SNLI](https://nlp.stanford.edu/projects/snli/) corpus and
-the [GloVe 840B 300d](https://nlp.stanford.edu/projects/glove/) embeddings. Other datasets can be downloaded by simply passing
-their URL as argument to the script (for example, the [MultNLI dataset](https://www.nyu.edu/projects/bowman/multinli/)).
+the [GloVe 840B 300d](https://nlp.stanford.edu/projects/glove/) embeddings. 
 
 The script's usage is the following:
 ```
-fetch_data.py [-h] [--dataset_url DATASET_URL]
-              [--embeddings_url EMBEDDINGS_URL]
-              [--target_dir TARGET_DIR]
+cd src
+fetch_data.py [--dataset_url DATASET_URL][--embeddings_url EMBEDDINGS_URL][--target_dir TARGET_DIR]
 ```
 where `target_dir` is the path to a directory where the downloaded data must be saved (defaults to *../data/*).
 
