@@ -6,7 +6,7 @@ This repository is the code implementation of the paper:
 ### Create a conda environment:
 ```
 conda create -n SFA4Text_matching python=3.9
-conda activate voxposer-env
+conda activate SFA4Text_matching
 ```
 ### Install dependencies:
 ```
