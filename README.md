@@ -2,6 +2,8 @@
 This repository is the code implementation of the paper:
 ["Modeling Selective Feature Attention for Representation-based Siamese Text Matching"](https://arxiv.org/pdf/2404.16776) 
 
+Our proposed [FA and SFA](https://github.com/hggzjx/SFA/blob/main/base_model/our_layers.py) blocks are plug-and-play modules.
+
 ## Setup Instructions
 ### Create a conda environment:
 ```
