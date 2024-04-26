@@ -27,11 +27,14 @@ cd src
 load_data.py [--dataset_url DATASET_URL][--embeddings_url EMBEDDINGS_URL][--target_dir TARGET_DIR]
 preprocess.py [--config CONFIG]
 ```
-### Train and Test the model
+### Train and Test the model with FA or SFA
 ```
 train.py [--config CONFIG] [--checkpoint CHECKPOINT]
 test.py [--test_data Test_DATA] [--checkpoint CHECKPOINT]
 ```
 where `config` is a configuration file (default ones are located in the *config/train* folder), and `checkpoint` is an 
 optional checkpoint from which training can be resumed. Checkpoints are created by the script after each training epoch.
+This repository provides a demonstration of applying FA or SFA to matching models. The choice of whether to apply FA or 
+SFA can be made in the *config/train* directory.
+
 
