@@ -2,44 +2,36 @@
 This repository is the code implementation of the paper:
 ["Modeling Selective Feature Attention for Representation-based Siamese Text Matching"](https://arxiv.org/pdf/2404.16776) 
 
-## How to
-### Install the package
-To use the model defined in this repository, you will first need to install PyTorch on your machine by following the steps
-described on the package's [official page](https://pytorch.org/get-started/locally/) (this step is only necessary if you use
-Windows).
-Then, to install the dependencies necessary to run the model, simply execute the command `pip install --upgrade .` from within
-the cloned repository (at the root, and preferably inside of a [virtual environment](https://docs.python.org/3/tutorial/venv.html)).
+## Setup Instructions
+### Create a conda environment:
+```
+conda create -n SFA4Text_matching python=3.9
+conda activate voxposer-env
+```
+### Install dependencies:
+```
+pip install -r requirements.txt
+```
 
-### Load the data to train and test the model
-The *load_data.py* script located in the *scr/* folder of this repository can be used to download some NLI dataset and
-pretrained word embeddings. By default, the script fetches the [SNLI](https://nlp.stanford.edu/projects/snli/) corpus and
-the [GloVe 840B 300d](https://nlp.stanford.edu/projects/glove/) embeddings. 
-
-The script's usage is the following:
+### Load the data and preprocess the data
+The *load_data.py* script located in the *scr/* folder of this repository can be used to download some text matching dataset 
+and pretrained word embeddings. By default, the script fetches the most classic dataset [SNLI](https://nlp.stanford.edu/projects/snli/) 
+corpus and the [GloVe 840B 300d](https://nlp.stanford.edu/projects/glove/) embeddings. where `target_dir` is the path to a directory 
+where the downloaded data must be saved (defaults to *../data/*).
 ```
 cd src
-fetch_data.py [--dataset_url DATASET_URL][--embeddings_url EMBEDDINGS_URL][--target_dir TARGET_DIR]
+load_data.py [--dataset_url DATASET_URL][--embeddings_url EMBEDDINGS_URL][--target_dir TARGET_DIR]
 ```
-where `target_dir` is the path to a directory where the downloaded data must be saved (defaults to *../data/*).
-
-For MultiNLI, the matched and mismatched test sets need to be manually downloaded from Kaggle and the corresponding .txt files 
-copied in the *multinli_1.0* dataset folder.
-
-### Preprocess the data
-Before the downloaded corpus and embeddings can be used in the ESIM model, they need to be preprocessed. This can be done with
-the *preprocess_\*.py* scripts in the *scripts/preprocessing* folder of this repository. The *preprocess_snli.py* script can be 
-used to preprocess SNLI, *preprocess_mnli.py* to preprocess MultiNLI, and *preprocess_bnli.py* to preprocess the Breaking NLI 
-(BNLI) dataset. Note that when calling the script fot BNLI, the SNLI data should have been preprocessed first, so that the 
-worddict produced for it can be used on BNLI.
-
-The scripts' usage is the following (replace the \* with *snli*, *mnli* or *bnli*):
+Before the downloaded corpus and embeddings can be used for the base model, they need to be preprocessed. This can be done with
+the *preprocess.py* scripts in the *src/preprocess* folder of this repository. where `config` is the path to a configuration file 
+defining the parameters to be used for preprocessing. Default configuration files can be found in the *config/preprocess* folder 
+of this repository.
 ```
-preprocess_*.py [-h] [--config CONFIG]
+cd src
+preprocess.py [--config CONFIG]
 ```
-where `config` is the path to a configuration file defining the parameters to be used for preprocessing. Default 
-configuration files can be found in the *config/preprocessing* folder of this repository.
 
-### Train the model
+### Train and Test the model
 The *train_\*.py* scripts in the *scripts/training* folder can be used to train the ESIM model on some training data and 
 validate it on some validation data.
 
