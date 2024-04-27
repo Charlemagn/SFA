@@ -19,11 +19,11 @@ The *load_data.py* script located in the *scr/* folder of this repository can be
 and pretrained word embeddings. By default, the script loads the most classic dataset [SNLI](https://nlp.stanford.edu/projects/snli/) 
 corpus and the [GloVe 840B 300d](https://nlp.stanford.edu/projects/glove/) embeddings. where `target_dir` is the path to a directory 
 where the downloaded data must be saved (defaults to *../data/*). Before using the downloaded corpus and embeddings for the base model, 
-they need to be preprocessed using the *preprocess.py* script in the src/preprocess folder of this repository. where `config` 
+they need to be preprocessed using the *preprocess.py* script in the scr/preprocess folder of this repository. where `config` 
 is the path to a configuration file defining the parameters to be used for preprocessing. Default configuration files can be found in the *config/preprocess* folder 
 of this repository.
 ```
-cd src
+cd scr
 load_data.py [--dataset_url DATASET_URL][--embeddings_url EMBEDDINGS_URL][--target_dir TARGET_DIR]
 preprocess.py [--config CONFIG]
 ```
