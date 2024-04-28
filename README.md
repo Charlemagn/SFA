@@ -30,7 +30,7 @@ preprocess.py [--config CONFIG]
 ### Train and Test the model with FA or SFA
 ```
 train.py [--config CONFIG] [--checkpoint CHECKPOINT]
-test.py [--test_data TEST_DATA] [--checkpoint CHECKPOINT]
+test.py --test_data TEST_DATA --checkpoint CHECKPOINT
 ```
 where `config` is a configuration file (default ones are located in the *config/train* folder), and `checkpoint` is an 
 optional checkpoint from which training can be resumed. Checkpoints are created by the script after each training epoch.
