@@ -12,7 +12,7 @@ Then, to install the dependencies necessary to run the model, simply execute the
 the cloned repository (at the root, and preferably inside of a [virtual environment](https://docs.python.org/3/tutorial/venv.html)).
 
 ## Fetch the data to train and test the model
-The *fetch_data.py* script located in the *scripts/* folder of this repository can be used to download some NLI dataset and
+The *load_data.py* script located in the *scripts/* folder of this repository can be used to download some NLI dataset and
 pretrained word embeddings. By default, the script fetches the [SNLI](https://nlp.stanford.edu/projects/snli/) corpus and
 the [GloVe 840B 300d](https://nlp.stanford.edu/projects/glove/) embeddings. Other datasets can be downloaded by simply passing
 their URL as argument to the script (for example, the [MultNLI dataset](https://www.nyu.edu/projects/bowman/multinli/)).
