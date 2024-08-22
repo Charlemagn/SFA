@@ -19,7 +19,7 @@ their URL as argument to the script (for example, the [MultNLI dataset](https://
 
 The script's usage is the following:
 ```
-fetch_data.py [-h] [--dataset_url DATASET_URL]
+load_data.py [-h] [--dataset_url DATASET_URL]
               [--embeddings_url EMBEDDINGS_URL]
               [--target_dir TARGET_DIR]
 ```
