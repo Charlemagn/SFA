@@ -23,30 +23,28 @@ python load_data.py
 ```
 where the downloaded data must be saved (defaults to *../data/*).
 
-For MultiNLI, the matched and mismatched test sets need to be manually downloaded from Kaggle and the corresponding .txt files 
-copied in the *multinli_1.0* dataset folder.
-
 ## Preprocess the data
-Before the downloaded corpus and embeddings can be used in the ESIM model, they need to be preprocessed. This can be done with
-the *preprocess_\*.py* scripts in the *scripts/preprocessing* folder of this repository. The *preprocess_snli.py* script can be 
+Before the downloaded corpus and embeddings can be used in the base model, they need to be preprocessed. This can be done with
+the *preprocess_snli.py* scripts in the *scripts/preprocessing* folder of this repository. 
+<!-- The *preprocess_snli.py* script can be 
 used to preprocess SNLI, *preprocess_mnli.py* to preprocess MultiNLI, and *preprocess_bnli.py* to preprocess the Breaking NLI 
 (BNLI) dataset. Note that when calling the script fot BNLI, the SNLI data should have been preprocessed first, so that the 
-worddict produced for it can be used on BNLI.
+worddict produced for it can be used on BNLI. -->
 
-The scripts' usage is the following (replace the \* with *snli*, *mnli* or *bnli*):
+The scripts' usage is the following:
 ```
-preprocess_*.py [-h] [--config CONFIG]
+python preprocess_snli.py
 ```
 where `config` is the path to a configuration file defining the parameters to be used for preprocessing. Default 
 configuration files can be found in the *config/preprocessing* folder of this repository.
 
 ## Train the model
-The *train_\*.py* scripts in the *scripts/training* folder can be used to train the ESIM model on some training data and 
+The *train_snli.py* scripts in the *scripts/training* folder can be used to train the model on some training data and 
 validate it on some validation data.
 
 The script's usage is the following (replace the \* with *snli* or *mnli*):
 ```
-train_*.py [-h] [--config CONFIG] [--checkpoint CHECKPOINT]
+python train_snli.py [-h] [--config CONFIG] [--checkpoint CHECKPOINT]
 ```
 where `config` is a configuration file (default ones are located in the *config/training* folder), and `checkpoint` is an 
 optional checkpoint from which training can be resumed. Checkpoints are created by the script after each training epoch, with 
