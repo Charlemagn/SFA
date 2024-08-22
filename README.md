@@ -1,4 +1,4 @@
-# ESIM - Enhanced Sequential Inference Model
+<!-- # ESIM - Enhanced Sequential Inference Model
 Implementation of the ESIM model for natural language inference with PyTorch
 
 This repository contains an implementation with PyTorch of the sequential model presented in the paper 
@@ -111,4 +111,4 @@ On MultiNLI, the model reaches the following accuracy:
 | Dev   |  77.0 % |   76.8 %   |
 | Test  |  76.6 % |   75.8 %   |
 
-These results are slightly above what was reported by Williams et al. in their MultiNLI paper.
+These results are slightly above what was reported by Williams et al. in their MultiNLI paper. -->
