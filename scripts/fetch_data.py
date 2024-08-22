@@ -103,6 +103,7 @@ if __name__ == "__main__":
         os.makedirs(args.target_dir)
 
     print(20*"=", "Fetching the dataset:", 20*'=')
+    
     download_unzip(args.dataset_url, os.path.join(args.target_dir, "dataset"))
 
     print(20*"=", "Fetching the word embeddings:", 20*"=")
