@@ -4,6 +4,7 @@ Definition of custom layers for the ESIM model.
 # Aurelien Coet, 2018.
 
 import torch.nn as nn
+import torch
 
 from .utils import sort_by_seq_lens, masked_softmax, weighted_sum
 
@@ -112,6 +113,8 @@ class Seq2SeqEncoder(nn.Module):
         """
         sorted_batch, sorted_lengths, _, restoration_idx =\
             sort_by_seq_lens(sequences_batch, sequences_lengths)
+        lengths_ori_device = sorted_lengths.device
+        sorted_lengths = sorted_lengths.to('cpu', dtype=torch.int64)
         packed_batch = nn.utils.rnn.pack_padded_sequence(sorted_batch,
                                                          sorted_lengths,
                                                          batch_first=True)
