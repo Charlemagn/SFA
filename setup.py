@@ -1,13 +1,13 @@
 from setuptools import setup
 
 
-setup(name='ESIM',
+setup(name='SFA',
       version='1.0.1',
-      url='https://github.com/coetaur0/ESIM',
+      url='https://github.com/hggzjx/SFA',
       license='Apache 2',
       author='Aurelien Coet',
-      author_email='aurelien.coet19@gmail.com',
-      description='Implementation of the ESIM model for NLI with PyTorch',
+      author_email='21349110@suibe.edu.cn',
+      description='Implementation of the Modeling Selective Feature Attention for Lightweight Text Matching',
       packages=[
         'esim'
       ],
