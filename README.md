@@ -19,9 +19,7 @@ their URL as argument to the script (for example, the [MultNLI dataset](https://
 
 The script's usage is the following:
 ```
-load_data.py [-h] [--dataset_url DATASET_URL]
-              [--embeddings_url EMBEDDINGS_URL]
-              [--target_dir TARGET_DIR]
+load_data.py
 ```
 where `target_dir` is the path to a directory where the downloaded data must be saved (defaults to *../data/*).
 
