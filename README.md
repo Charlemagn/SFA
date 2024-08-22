@@ -79,29 +79,13 @@ The *test_mnli.py* script makes predictions on MultiNLI's matched and mismatched
 To get the classification accuracy associated to the model's predictions, the .csv files it produces need to be submitted
 to the Kaggle competitions for MultiNLI.
 
-<!-- ## Results
-A model pre-trained on SNLI is made available in the *data/checkpoints/SNLI* folder of this repository. The model was trained
-with the parameters defined in the default configuration files provided in *config/*.
-To test it, simply execute `python test_snli.py ../../preprocessed/SNLI/test_data.pkl ../../data/checkpoints/best.pth.tar`
-from within the *scripts/testing* folder.
+### Citation
 
-The pretrained model achieves the following performance on the SNLI dataset:
+If you find the code is helpful, please cite:
 
-| Split | Accuracy (%) |
-|-------|--------------|
-| Train |     93.2     |
-| Dev   |     88.4     |
-| Test  |     88.0     |
-
-The results are in line with those presented in the paper by Chen et al.
-
-On the [Breaking NLI](https://github.com/BIU-NLP/Breaking_NLI) dataset, published by [Glockner et al. in 2018](https://arxiv.org/pdf/1805.02266.pdf), the model reaches **65.5%** accuracy, as reported in the paper.
-
-On MultiNLI, the model reaches the following accuracy:
-
-| Split | Matched | Mismatched |
-|-------|---------|------------|
-| Dev   |  77.0 % |   76.8 %   |
-| Test  |  76.6 % |   75.8 %   |
-
-These results are slightly above what was reported by Williams et al. in their MultiNLI paper. -->
+```
+@article{zangmodeling,
+  title={Modeling Selective Feature Attention for Lightweight Text Matching},
+  author={Zang, Jianxiang and Liu, Hui}
+}
+```
