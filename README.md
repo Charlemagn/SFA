@@ -1,14 +1,7 @@
-<!-- # ESIM - Enhanced Sequential Inference Model
-Implementation of the ESIM model for natural language inference with PyTorch
+# Modeling Selective Feature Attention for Lightweight Text Matching
 
-This repository contains an implementation with PyTorch of the sequential model presented in the paper 
-["Enhanced LSTM for Natural Language Inference"](https://arxiv.org/pdf/1609.06038.pdf) by Chen et al. in 2016.
-
-The figure below illustrates a high-level view of the model's architecture.
-
-![alt-text](./esim.png)
-
-This model was implemented in the context of [my master's thesis](https://coetaur0.github.io/projects/lean/) at the university of Geneva.
+This repository is the implementation presented in the paper 
+["Modeling Selective Feature Attention for Lightweight Text Matching"](https://www.ijcai.org/proceedings/2024/0732.pdf)
 
 ## How to
 ### Install the package
@@ -86,7 +79,7 @@ The *test_mnli.py* script makes predictions on MultiNLI's matched and mismatched
 To get the classification accuracy associated to the model's predictions, the .csv files it produces need to be submitted
 to the Kaggle competitions for MultiNLI.
 
-## Results
+<!-- ## Results
 A model pre-trained on SNLI is made available in the *data/checkpoints/SNLI* folder of this repository. The model was trained
 with the parameters defined in the default configuration files provided in *config/*.
 To test it, simply execute `python test_snli.py ../../preprocessed/SNLI/test_data.pkl ../../data/checkpoints/best.pth.tar`
