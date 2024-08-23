@@ -14,8 +14,7 @@ the cloned repository (at the root, and preferably inside of a [virtual environm
 ## Fetch the data to train and test the model
 The *load_data.py* script located in the *scripts/* folder of this repository can be used to download some NLI dataset and
 pretrained word embeddings. By default, the script fetches the [SNLI](https://nlp.stanford.edu/projects/snli/) corpus and
-the [GloVe 840B 300d](https://nlp.stanford.edu/projects/glove/) embeddings. Other datasets can be downloaded by simply passing
-their URL as argument to the script (for example, the [MultNLI dataset](https://www.nyu.edu/projects/bowman/multinli/)).
+the [GloVe 840B 300d](https://nlp.stanford.edu/projects/glove/) embeddings. 
 
 The script's usage is the following:
 ```
@@ -42,7 +41,7 @@ configuration files can be found in the *config/preprocessing* folder of this re
 The *train_snli.py* scripts in the *scripts/training* folder can be used to train the model on some training data and 
 validate it on some validation data.
 
-The script's usage is the following (replace the \* with *snli* or *mnli*):
+The script's usage is the following:
 ```
 python train_snli.py [-h] [--config CONFIG] [--checkpoint CHECKPOINT]
 ```
