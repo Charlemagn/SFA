@@ -55,7 +55,7 @@ def main(train_file,
         checkpoint: A checkpoint from which to continue training. If None,
             training starts from scratch. Defaults to None.
     """
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    device = torch.device("cuda:1" if torch.cuda.is_available() else "cpu")
 
     print(20 * "=", " Preparing for training ", 20 * "=")
 
@@ -130,7 +130,7 @@ def main(train_file,
     # -------------------- Training epochs ------------------- #
     print("\n",
           20 * "=",
-          "Training ESIM model on device: {}".format(device),
+          "Training model on device: {}".format(device),
           20 * "=")
 
     patience_counter = 0
