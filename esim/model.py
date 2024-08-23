@@ -5,7 +5,7 @@ Definition of the ESIM model.
 
 import torch
 import torch.nn as nn
-from FA_layers import *
+from .FA_layers2 import *
 from .layers import RNNDropout, Seq2SeqEncoder, SoftmaxAttention
 from .utils import get_mask, replace_masked
 
@@ -21,6 +21,7 @@ class ESIM(nn.Module):
                  vocab_size,
                  embedding_dim,
                  hidden_size,
+                 fa="FA",
                  embeddings=None,
                  padding_idx=0,
                  dropout=0.5,
@@ -45,10 +46,11 @@ class ESIM(nn.Module):
                 executed. Defaults to 'cpu'.
         """
         super(ESIM, self).__init__()
-
+        
         self.vocab_size = vocab_size
         self.embedding_dim = embedding_dim
         self.hidden_size = hidden_size
+        self.fa = fa
         self.num_classes = num_classes
         self.dropout = dropout
         self.device = device
@@ -69,6 +71,12 @@ class ESIM(nn.Module):
 
         self._attention = SoftmaxAttention()
 
+        # if self.fa == "FA":
+        #     self.feature_attention = FABlock(2*self.embedding_dim, 64)
+        
+        # elif self.fa == "SFA":
+        #     self.feature_attention = SFABlock(2*self.embedding_dim, 64)
+
         self._projection = nn.Sequential(nn.Linear(4*2*self.hidden_size,
                                                    self.hidden_size),
                                          nn.ReLU())
@@ -88,6 +96,7 @@ class ESIM(nn.Module):
 
         # Initialize all weights and biases in the model.
         self.apply(_init_esim_weights)
+
 
     def forward(self,
                 premises,
@@ -113,6 +122,7 @@ class ESIM(nn.Module):
             probabilities: A tensor of size (batch, num_classes) containing
                 the probabilities of each output class in the model.
         """
+    
         premises_mask = get_mask(premises, premises_lengths).to(self.device)
         hypotheses_mask = get_mask(hypotheses, hypotheses_lengths)\
             .to(self.device)
@@ -133,6 +143,17 @@ class ESIM(nn.Module):
             self._attention(encoded_premises, premises_mask,
                             encoded_hypotheses, hypotheses_mask)
 
+        breakpoint()
+        
+        if self.fa in ["FA", "SFA"]:
+            feature_attention_premises = FABlock(attended_premises.shape[-2],attended_premises.shape[-1], 64)
+            feature_attention_hypotheses = FABlock(attended_hypotheses.shape[-2],attended_hypotheses.shape[-1], 64)
+            feature_attention_premises = feature_attention_premises.to(self.device)
+            feature_attention_hypotheses = feature_attention_hypotheses.to(self.device)
+            attended_premises = feature_attention_premises(attended_premises)
+            attended_hypotheses = feature_attention_hypotheses(attended_hypotheses)
+
+        
         enhanced_premises = torch.cat([encoded_premises,
                                        attended_premises,
                                        encoded_premises - attended_premises,

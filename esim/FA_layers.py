@@ -75,11 +75,13 @@ if __name__ == '__main__':
     feature_dim = 300
     dim1 = 128
     dim2 = 64
-    inputs = torch.randn(batch_size, seq_len, feature_dim)
-    sfa_block = SFABlock(dim1, dim2)
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    inputs = torch.randn(batch_size, seq_len, feature_dim).to(device)
+    sfa_block = SFABlock(dim1, dim2).to(device)
     outputs = sfa_block(inputs)
-    print(inputs.shape)
-    print(outputs.shape)
+    print(inputs.device)
+    print(outputs.device)
+    assert inputs.shape == outputs.shape
 
 
 
