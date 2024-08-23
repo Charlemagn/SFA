@@ -207,7 +207,7 @@ def main(train_file,
 if __name__ == "__main__":
     default_config = "../../config/training/snli_training.json"
 
-    parser = argparse.ArgumentParser(description="Train the ESIM model on SNLI")
+    parser = argparse.ArgumentParser(description="Train the ESIM model on SNLI with FA/SFA")
     parser.add_argument("--config",
                         default=default_config,
                         help="Path to a json configuration file")
